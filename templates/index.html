@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Weather API</h1>
+    <form action="/" method="POST">
+        <label for="city">Enter city name:</label>
+        <input type="text" name="city" id="city" required>
+        <button type="submit">Get Weather</button>
+    </form>
+
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+
+    {% if weather_data %}
+        {% if weather_data.error %}
+            <p style="color: red;">{{ weather_data.error }}</p>
+        {% else %}
+            <h2>Weather for {{ weather_data['name'] }}, {{ weather_data['sys']['country'] }}</h2>
+            <p>Temperature: {{ weather_data['main']['temp'] }}°C</p>
+            <p>Weather: {{ weather_data['weather'][0]['description'] }}</p>
+            <p>Humidity: {{ weather_data['main']['humidity'] }}%</p>
+            <p>Wind Speed: {{ weather_data['wind']['speed'] }} m/s</p>
+        {% endif %}
+    {% endif %}
+
+    {% if forecast_data %}
+        <h2>Forecast for the next 5 days</h2>
+        <ul>
+        {% for day in forecast_data['list'] %}
+            <li>
+                {{ day['dt_txt'] }}:
+                Temp: {{ day['main']['temp'] }}°C,
+                Weather: {{ day['weather'][0]['description'] }},
+                Humidity: {{ day['main']['humidity'] }}%
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+</body>
+</html>

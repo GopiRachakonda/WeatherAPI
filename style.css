@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;  /* Pale Blue Background */
+}
+
+.container {
+    width: 60%;  /* Adjusted width for better layout */
+    margin: 0 auto;
+    padding-top: 50px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;  /* Adds space between heading and input form */
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    width: 250px;  /* Set a specific width for input */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #5c6bc0;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+}
+
+.weather, .forecast {
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.forecast-item {
+    display: inline-block;
+    width: 120px;
+    margin: 10px;
+    background-color: #e3f2fd;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+button {
+    margin-top: 20px;
+}
+
+/* Center everything inside the body */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f8ff;  /* Pale Blue Background */
+    flex-direction: column;
+}
